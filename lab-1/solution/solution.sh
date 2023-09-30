@@ -4,50 +4,55 @@
 # Пункт 1              #
 ########################
 
-mkdir -p ~/lab0 # Create lab0 dir
+if [ -d ~/lab0 ]; then
+    chmod -R 777 ~/lab0
+    rm -rf ~/lab0
+fi
+
+mkdir ~/lab0
 cd ~/lab0
-echo "Тип покемона   PSYCHIC NONE" >beheeyem4 # Create beheeyem4 file
-mkdir buneary0 && cd buneary0                 # Create buneary0 dir
+
+mkdir buneary0
+mkdir -p tirtouga1/chimchar
+mkdir -p totodile2/jumpluff
+
 echo "satk=4 sdef=8
-spd=5" >swablu                     # Create swablu file
-echo "satk=8 sdef=8 spd=8" >glalie # Create glalie file
+spd=5" >./buneary0/swablu                     # Create swablu file
+echo "satk=8 sdef=8 spd=8" >./buneary0/glalie # Create glalie file
 echo "Ходы   Air Cutter Aqua Tail
 Bounce Defog Dive Icy Wind Ominous Wind Signal Beam Sleep Talk Snore
-Swift Twister Tailwind" >finneon # Create finneon file
+Swift Twister Tailwind" >./buneary0/finneon # Create finneon file
 
-cd ~/lab0
-echo "satk=5 sdef=6 spd=2" >cleffa8 # Create cleffa8 file
+echo "Тип покемона   PSYCHIC NONE" >beheeyem4 # Create beheeyem4 file
+echo "satk=5 sdef=6 spd=2" >cleffa8           # Create cleffa8 file
 echo "satk=7
-sdef=8 spd=6" >swalot5          # Create swalot5 file
-mkdir tirtouga1 && cd tirtouga1 # Create tirtouga1 dir
-mkdir chimchar                  # Create chimchar dir
-echo "Возможности   Overland=6 Surface=1 Sky=10
-Jump=3 Power2=0 Intelligence=3" >pidgeotto # Create pidgeotto file
-echo "Развитые способности   Anger
-Point" >camerupt # Create camerupt file
+sdef=8 spd=6" >swalot5 # Create swalot5 file
 
-cd ~/lab0
-mkdir totodile2 && cd totodile2         # Create totodile2 dir
-mkdir jumpluff                          # Create jumpluff dir
-echo "Тип покемона   ICE NONE" >glaceon # Create glaceon file
-echo "satk=5 sdef=6 spd=9" >furret      # Create furret file
+echo "Возможности   Overland=6 Surface=1 Sky=10
+Jump=3 Power2=0 Intelligence=3" >tirtouga1/pidgeotto # Create pidgeotto file
+echo "Развитые способности   Anger
+Point" >tirtouga1/camerupt # Create camerupt file
+
+echo "Тип покемона   ICE NONE" >totodile2/glaceon # Create glaceon file
+echo "satk=5 sdef=6 spd=9" >totodile2/furret      # Create furret file
 
 ########################
 # Пункт 2              #
 ########################
 
-chmod 660 ~/lab0/beheeyem4                       # файл beheeyem4
-chmod u=rx,go=rwx ~/lab0/buneary0                # каталог buneary0 (577)
-chmod 046 ~/lab0/buneary0/swablu                 # файл swablu
-chmod u=r,g=r,o= ~/lab0/buneary0/glalie          # файл glalie (440)
-chmod u=rw,g=r,o= ~/lab0/buneary0/finneon        # файл finneon (640)
-chmod u=r,g=,o=r ~/lab0/cleffa8                  # файл cleffa8 (404)
-chmod u=rw,g=w,o=r ~/lab0/swalot5                # файл swalot5 (624)
-chmod u=rx,g=wx,o=rwx ~/lab0/tirtouga1           # каталог tirtouga1
-chmod u=wx,g=x,o=x ~/lab0/tirtouga1/chimchar     # каталог chimchar
-chmod 046 ~/lab0/tirtouga1/pidgeotto             # файл pidgeotto
-chmod u=r,g=,o= ~/lab0/tirtouga1/camerupt        # файл camerupt
-chmod u=rwx,g=wx,o=rwx ~/lab0/totodile2          # каталог totodile2
+chmod 660 ~/lab0/beheeyem4                   # файл beheeyem4
+chmod u=rx,go=rwx ~/lab0/buneary0            # каталог buneary0 (577)
+chmod 046 ~/lab0/buneary0/swablu             # файл swablu
+chmod u=r,g=r,o= ~/lab0/buneary0/glalie      # файл glalie (440)
+chmod u=rw,g=r,o= ~/lab0/buneary0/finneon    # файл finneon (640)
+chmod u=r,g=,o=r ~/lab0/cleffa8              # файл cleffa8 (404)
+chmod u=rw,g=w,o=r ~/lab0/swalot5            # файл swalot5 (624)
+chmod u=rx,g=wx,o=rwx ~/lab0/tirtouga1       # каталог tirtouga1
+chmod u=wx,g=x,o=x ~/lab0/tirtouga1/chimchar # каталог chimchar
+chmod 046 ~/lab0/tirtouga1/pidgeotto         # файл pidgeotto
+chmod u=r,g=,o= ~/lab0/tirtouga1/camerupt    # файл camerupt
+chmod a=rwx ~/lab0/totodile2                 # каталог totodile2
+chmod g-r ~/lab0/totodile2
 chmod u=rwx,g=wx,o=rwx ~/lab0/totodile2/jumpluff # каталог jumpluff
 chmod u=,g=,o=r ~/lab0/totodile2/glaceon         # файл glaceon
 chmod u=rw,g=,o=r ~/lab0/totodile2/furret        # файл furret
@@ -71,7 +76,7 @@ chmod u-w ~/lab0/buneary0
 
 # Скопировать содержимое файла cleffa8 в новый файл lab0/tirtouga1/cameruptcleffa:
 chmod u+w ~/lab0/tirtouga1
-cat ~/lab0/cleffa8 >~/lab0/tirtouga1/cameruptcleffa
+cat ~/lab0/cleffa8 > ~/lab0/tirtouga1/cameruptcleffa
 chmod u-w ~/lab0/tirtouga1
 
 # Скопировать файл cleffa8 в директорию lab0/tirtouga1/chimchar:
@@ -93,7 +98,7 @@ cat ~/lab0/tirtouga1/camerupt ~/lab0/buneary0/finneon >~/lab0/beheeyem4_16
 # swablu, glalie, finneon, pidgeotto, camerupt
 # отсортировать вывод по увеличению количества,
 # ошибки доступа не подавлять и не перенаправлять
-wc -c ~/lab0/buneary0/swablu ~/lab0/buneary0/glalie ~/lab0/buneary0/finneon ~/lab0/tirtouga1/pidgeotto ~/lab0/tirtouga1/chimchar | sort -n
+wc -m ~/lab0/buneary0/swablu ~/lab0/buneary0/glalie ~/lab0/buneary0/finneon ~/lab0/tirtouga1/pidgeotto ~/lab0/tirtouga1/chimchar | sort -n
 
 # Вывести список имен и атрибутов файлов в директории
 # totodile2, список отсортировать по возрастанию размера,
@@ -128,23 +133,24 @@ cat -n ~/lab0/*/c* ~/lab0/c* 2>/tmp/s408512-error.log | sort -r -k 2,2
 ########################
 
 # Удалить файл beheeyem4:
-rm ~/lab0/beheeyem4
+rm -f ~/lab0/beheeyem4
 
 # Удалить файл lab0/buneary0/finneon:
 chmod u+w ~/lab0/buneary0
-rm ~/lab0/buneary0/finneon
+rm -f ~/lab0/buneary0/finneon
 chmod u-w ~/lab0/buneary0
 
 # Удалить символические ссылки Copy_*:
-rm ~/lab0/Copy_*
+rm -f ~/lab0/Copy_*
 
 # Удалить жесткие ссылки lab0/tirtouga1/pidgeottoswal*:
 chmod u+w ~/lab0/tirtouga1
-rm ~/lab0/tirtouga1/pidgeottoswal*
+rm -f ~/lab0/tirtouga1/pidgeottoswal*
 chmod u-w ~/lab0/tirtouga1
 
 # Удалить директорию buneary0:
-rm -r ~/lab0/buneary0
+chmod u+w ~/lab0/buneary0
+rm -rf ~/lab0/buneary0
 
 # Удалить директорию lab0/totodile2/jumpluff:
 rmdir ~/lab0/totodile2/jumpluff

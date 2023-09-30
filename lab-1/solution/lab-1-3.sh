@@ -15,7 +15,7 @@ chmod u-w ~/lab0/buneary0
 
 # Скопировать содержимое файла cleffa8 в новый файл lab0/tirtouga1/cameruptcleffa:
 chmod u+w ~/lab0/tirtouga1
-cat ~/lab0/cleffa8 >~/lab0/tirtouga1/cameruptcleffa
+cat ~/lab0/cleffa8 > ~/lab0/tirtouga1/cameruptcleffa
 chmod u-w ~/lab0/tirtouga1
 
 # Скопировать файл cleffa8 в директорию lab0/tirtouga1/chimchar:

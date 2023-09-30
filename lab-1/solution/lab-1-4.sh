@@ -4,7 +4,7 @@
 # swablu, glalie, finneon, pidgeotto, camerupt
 # отсортировать вывод по увеличению количества,
 # ошибки доступа не подавлять и не перенаправлять
-wc -c ~/lab0/buneary0/swablu ~/lab0/buneary0/glalie ~/lab0/buneary0/finneon ~/lab0/tirtouga1/pidgeotto ~/lab0/tirtouga1/chimchar | sort -n
+wc -m ~/lab0/buneary0/swablu ~/lab0/buneary0/glalie ~/lab0/buneary0/finneon ~/lab0/tirtouga1/pidgeotto ~/lab0/tirtouga1/chimchar | sort -n
 
 # Вывести список имен и атрибутов файлов в директории
 # totodile2, список отсортировать по возрастанию размера,
